@@ -1,6 +1,11 @@
 @import 'core/settings';
 
+html,body { background-color: rgb(46, 46, 46); margin:0; padding:0; height:100%; overflow:hidden; }
+p { text-align:center; font-style:italic; margin:1em; }
+path { fill:rgb(247, 213, 213); stroke:none }
+svg { height:80%;}
+
 body {
-	background: url('../images/logo-adalab-80px.png') center center no-repeat $color-white;
+	background: rgb(10, 10, 209);
 	height: 100vh;
 }

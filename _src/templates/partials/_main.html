@@ -1,1 +1,42 @@
-<main class="page__main">@@label</main>
+<main class="page__main">
+        <body cz-shortcut-listen="true">
+                <div id="graphics">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <path d="M3,15 l10,0 V27 H23 v10 h10
+                         C33,43 38,47 43,47 c0,5 5,10 10,10
+                         S63,67 63,67       s-10,10 10,10
+                         Q50,50 73,57       q20,-5 0,-10
+                         T70,40             t0,-15
+                         A5,5 45 1 0 40,20  a5,5 20 0 1 -10,-10
+                         Z" style="stroke-dasharray: 26, 319.086;"></path>
+                <g id="duplicate"></g>
+                </svg>
+                </div>
+                <p>Code copyright ©2013 Gavin Kistner; permission granted to freely use.</p>
+                <script type="text/javascript">
+                var distancePerPoint = 1;
+                var drawFPS = 60;
+                var orig = document.querySelector('path'), length, timer;
+                orig.addEventListener('mouseover',startDrawingPath,false);
+                orig.addEventListener('mouseout', stopDrawingPath, false);
+                
+                function startDrawingPath(){
+                    length = 0;
+                    orig.style.stroke = '#f60';
+                    timer = setInterval(increaseLength,1000/drawFPS);
+                }
+                
+                function increaseLength(){
+                    var pathLength = orig.getTotalLength();
+                    length += distancePerPoint;
+                    orig.style.strokeDasharray = [length,pathLength].join(' ');
+                    if (length >= pathLength) clearInterval(timer);
+                }
+                
+                function stopDrawingPath(){
+                    clearInterval(timer);
+                    orig.style.stroke = '';
+                }
+                
+                </script>
+                </body>
